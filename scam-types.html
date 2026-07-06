@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Common Scam Types — TrustBuddy</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- NAVBAR -->
+    <nav class="navbar navbar-expand-lg navbar-dark sticky-top shadow-sm" style="background-color: #1e293b;">
+        <div class="container">
+            <a class="navbar-brand fw-bold fs-4" href="index.html"><img src="assets/logo.png" alt="TrustBuddy" height="36" class="me-2">TrustBuddy</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="mainNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="scam-types.html">Scam Types</a></li>
+                    <li class="nav-item"><a class="nav-link" href="resources.html">Resources</a></li>
+                    <li class="nav-item"><a class="nav-link" href="faq.html">FAQ</a></li>
+                    <li class="nav-item"><a class="nav-link" href="feedback.html">Feedback</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- SCAM TYPES -->
+    <section class="py-5">
+        <div class="container">
+            <div class="text-center mb-3">
+                <span class="small fw-semibold text-muted">Text Size:</span>
+                <button class="btn btn-sm btn-outline-secondary size-btn" onclick="changeTextSize('decrease')">A−</button>
+                <button class="btn btn-sm btn-secondary size-btn active" onclick="changeTextSize('reset')">A</button>
+                <button class="btn btn-sm btn-outline-secondary size-btn" onclick="changeTextSize('increase')">A+</button>
+            </div>
+            <h1 class="fw-bold text-center mb-2" style="color:#1e293b;"><i class="bi bi-exclamation-triangle"></i> Common Scam Types in Singapore</h1>
+            <p class="text-center text-muted mb-5">Learn to recognise these scams and protect yourself and your loved ones.</p>
+
+            <div class="row g-4 justify-content-center">
+                <!-- Family Impersonation -->
+                <div class="col-lg-6">
+                    <div class="card h-100 border-0 shadow-sm rounded-4">
+                        <div class="card-body p-4">
+                            <div class="d-flex align-items-center gap-3 mb-3">
+                                <span class="fs-1">👨‍👩‍👦</span>
+                                <div>
+                                    <h4 class="fw-bold mb-0">Family Impersonation</h4>
+                                    <span class="badge bg-danger">CRITICAL</span>
+                                </div>
+                            </div>
+                            <p class="text-muted"><strong>Example:</strong> "Hi Mum, I dropped my phone. This is my new number. Can you send $500 to this account urgently?"</p>
+                            <p><strong>How it works:</strong> Scammer pretends to be your child with a "new number" and asks for urgent money transfer via PayNow or bank transfer.</p>
+                            <div class="bg-success bg-opacity-10 p-3 rounded-3">
+                                <p class="mb-0 small"><strong>🛡️ Protection:</strong> Call your child on their original number. Ask a personal question only they would know.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Fake Bank Alert -->
+                <div class="col-lg-6">
+                    <div class="card h-100 border-0 shadow-sm rounded-4">
+                        <div class="card-body p-4">
+                            <div class="d-flex align-items-center gap-3 mb-3">
+                                <span class="fs-1">🏦</span>
+                                <div>
+                                    <h4 class="fw-bold mb-0">Fake Bank Alert (Phishing)</h4>
+                                    <span class="badge bg-danger">CRITICAL</span>
+                                </div>
+                            </div>
+                            <p class="text-muted"><strong>Example:</strong> "[DBS] Unauthorized transaction of SGD 3,500 detected. Verify now: https://dbs-secure-login.com"</p>
+                            <p><strong>How it works:</strong> SMS with fake bank link steals your login credentials and OTP when you click and enter details.</p>
+                            <div class="bg-success bg-opacity-10 p-3 rounded-3">
+                                <p class="mb-0 small"><strong>🛡️ Protection:</strong> Banks NEVER send clickable links via SMS. Call the number on the back of your card.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Government Impersonation -->
+                <div class="col-lg-6">
+                    <div class="card h-100 border-0 shadow-sm rounded-4">
+                        <div class="card-body p-4">
+                            <div class="d-flex align-items-center gap-3 mb-3">
+                                <span class="fs-1">👮</span>
+                                <div>
+                                    <h4 class="fw-bold mb-0">Government Impersonation</h4>
+                                    <span class="badge bg-warning text-dark">HIGH</span>
+                                </div>
+                            </div>
+                            <p class="text-muted"><strong>Example:</strong> "This is the Singapore Police. Your bank account is linked to money laundering. Transfer your funds to this safe account."</p>
+                            <p><strong>How it works:</strong> Caller claims to be Police/MAS/ICA and pressures you to transfer savings to a "safe" account for "investigation."</p>
+                            <div class="bg-success bg-opacity-10 p-3 rounded-3">
+                                <p class="mb-0 small"><strong>🛡️ Protection:</strong> Police will NEVER ask you to transfer money. Hang up and call 999 if unsure.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Investment Scam -->
+                <div class="col-lg-6">
+                    <div class="card h-100 border-0 shadow-sm rounded-4">
+                        <div class="card-body p-4">
+                            <div class="d-flex align-items-center gap-3 mb-3">
+                                <span class="fs-1">💰</span>
+                                <div>
+                                    <h4 class="fw-bold mb-0">Investment Scam</h4>
+                                    <span class="badge bg-danger">CRITICAL</span>
+                                </div>
+                            </div>
+                            <p class="text-muted"><strong>Example:</strong> "Guaranteed 20% returns per month! Join our exclusive Telegram group. I made $50,000 in one week!"</p>
+                            <p><strong>How it works:</strong> Victim joins a group, makes small investments with "returns," then invests big. Platform disappears with all funds.</p>
+                            <div class="bg-success bg-opacity-10 p-3 rounded-3">
+                                <p class="mb-0 small"><strong>🛡️ Protection:</strong> No legitimate investment guarantees high returns. Check MAS Investor Alert List.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Love Scam -->
+                <div class="col-lg-6">
+                    <div class="card h-100 border-0 shadow-sm rounded-4">
+                        <div class="card-body p-4">
+                            <div class="d-flex align-items-center gap-3 mb-3">
+                                <span class="fs-1">💕</span>
+                                <div>
+                                    <h4 class="fw-bold mb-0">Love / Romance Scam</h4>
+                                    <span class="badge bg-warning text-dark">HIGH</span>
+                                </div>
+                            </div>
+                            <p class="text-muted"><strong>Example:</strong> "I want to visit you in Singapore but need money for my plane ticket. I promise I'll pay you back."</p>
+                            <p><strong>How it works:</strong> Fake dating profile builds emotional connection over weeks, then fabricates emergencies requiring money.</p>
+                            <div class="bg-success bg-opacity-10 p-3 rounded-3">
+                                <p class="mb-0 small"><strong>🛡️ Protection:</strong> Never send money to someone you haven't met in person. Reverse image search their photos.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Parcel Scam -->
+                <div class="col-lg-6">
+                    <div class="card h-100 border-0 shadow-sm rounded-4">
+                        <div class="card-body p-4">
+                            <div class="d-flex align-items-center gap-3 mb-3">
+                                <span class="fs-1">📦</span>
+                                <div>
+                                    <h4 class="fw-bold mb-0">Parcel Delivery Scam</h4>
+                                    <span class="badge bg-secondary">MEDIUM</span>
+                                </div>
+                            </div>
+                            <p class="text-muted"><strong>Example:</strong> "SingPost: Failed delivery attempt. Pay $2.50 to reschedule: http://singpost-pay.com"</p>
+                            <p><strong>How it works:</strong> Fake delivery SMS asks for small "fee" via link. Link steals credit card details and drains your account.</p>
+                            <div class="bg-success bg-opacity-10 p-3 rounded-3">
+                                <p class="mb-0 small"><strong>🛡️ Protection:</strong> SingPost/Ninja Van never ask for payment via SMS links. Use their official app only.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Job Scam -->
+                <div class="col-lg-6">
+                    <div class="card h-100 border-0 shadow-sm rounded-4">
+                        <div class="card-body p-4">
+                            <div class="d-flex align-items-center gap-3 mb-3">
+                                <span class="fs-1">💼</span>
+                                <div>
+                                    <h4 class="fw-bold mb-0">Job Scam</h4>
+                                    <span class="badge bg-warning text-dark">HIGH</span>
+                                </div>
+                            </div>
+                            <p class="text-muted"><strong>Example:</strong> "Earn $300/day liking YouTube videos from home! Pay $50 registration fee to start immediately."</p>
+                            <p><strong>How it works:</strong> Small tasks pay initially to build trust. Then victim is asked to "invest" to unlock higher pay. Money never returns.</p>
+                            <div class="bg-success bg-opacity-10 p-3 rounded-3">
+                                <p class="mb-0 small"><strong>🛡️ Protection:</strong> Legitimate jobs never ask you to pay money upfront. If you pay to earn, it's a scam.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- CPF/IRAS Scam -->
+                <div class="col-lg-6">
+                    <div class="card h-100 border-0 shadow-sm rounded-4">
+                        <div class="card-body p-4">
+                            <div class="d-flex align-items-center gap-3 mb-3">
+                                <span class="fs-1">🏛️</span>
+                                <div>
+                                    <h4 class="fw-bold mb-0">CPF / IRAS Tax Scam</h4>
+                                    <span class="badge bg-warning text-dark">HIGH</span>
+                                </div>
+                            </div>
+                            <p class="text-muted"><strong>Example:</strong> "IRAS: Your tax return has an error. Click to verify: https://iras-refund-sg.com. You are owed $3,200."</p>
+                            <p><strong>How it works:</strong> Fake SMS impersonates CPF/IRAS. Link steals SingPass credentials or banking details.</p>
+                            <div class="bg-success bg-opacity-10 p-3 rounded-3">
+                                <p class="mb-0 small"><strong>🛡️ Protection:</strong> CPF and IRAS never send clickable links via SMS. Use SingPass app or official websites only.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="bg-dark text-white py-3 mb-0">
+        <div class="container">
+            <div class="d-flex flex-wrap justify-content-between align-items-center gap-3">
+                <div><strong>TrustBuddy</strong> · <a href="index.html" class="text-white-50 text-decoration-none">Home</a> · <a href="about.html" class="text-white-50 text-decoration-none">About</a> · <a href="scam-types.html" class="text-white-50 text-decoration-none">Scam Types</a> · <a href="faq.html" class="text-white-50 text-decoration-none">FAQ</a> · <a href="feedback.html" class="text-white-50 text-decoration-none">Feedback</a></div>
+                <div class="d-flex gap-3 align-items-center">
+                    <a href="https://www.instagram.com/" target="_blank" rel="noopener" class="text-white"><i class="bi bi-instagram"></i></a>
+                    <a href="https://www.facebook.com/" target="_blank" rel="noopener" class="text-white"><i class="bi bi-facebook"></i></a>
+                    <a href="https://www.tiktok.com/" target="_blank" rel="noopener" class="text-white"><i class="bi bi-tiktok"></i></a>
+                    <a href="https://www.linkedin.com/" target="_blank" rel="noopener" class="text-white"><i class="bi bi-linkedin"></i></a>
+                </div>
+                <div class="text-white-50">© 2026 Prompt Pirates · Privacy · Terms</div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="textsize.js"></script>
+</body>
+</html>

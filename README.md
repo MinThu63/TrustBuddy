@@ -1,6 +1,6 @@
 # 🛡️ TrustBuddy — Anti-Scam Assistant
 
-An AI-powered Anti-Scam Assistant designed to protect senior citizens in Singapore from scams. Built for the **Skills Ignition SG AI Challenge 2026**.
+An AI-powered Anti-Scam Assistant designed to protect senior citizens in Singapore from scams.
 
 🔗 **Live Demo:** <!-- Add your GitHub Pages URL here -->
 

@@ -14,18 +14,18 @@
     <!-- NAVBAR -->
     <nav class="navbar navbar-expand-lg navbar-dark sticky-top shadow-sm" style="background-color: #1e293b;">
         <div class="container">
-            <a class="navbar-brand fw-bold fs-4" href="index.html"><img src="assets/logo.png" alt="TrustBuddy" height="36" class="me-2">TrustBuddy</a>
+            <a class="navbar-brand fw-bold fs-4" href="index.html"><img src="assets/logo.png" alt="TrustBuddy" height="36" class="me-2"><span id="navBrand">TrustBuddy</span></a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="mainNav">
                 <ul class="navbar-nav ms-auto">
-                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
-                    <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
-                    <li class="nav-item"><a class="nav-link" href="scam-types.html">Scam Types</a></li>
-                    <li class="nav-item"><a class="nav-link active" href="resources.html">Resources</a></li>
-                    <li class="nav-item"><a class="nav-link" href="faq.html">FAQ</a></li>
-                    <li class="nav-item"><a class="nav-link" href="feedback.html">Feedback</a></li>
+                    <li class="nav-item"><a id="navHome" class="nav-link" href="index.html">Home</a></li>
+                    <li class="nav-item"><a id="navAbout" class="nav-link" href="about.html">About</a></li>
+                    <li class="nav-item"><a id="navScamTypes" class="nav-link" href="scam-types.html">Scam Types</a></li>
+                    <li class="nav-item"><a id="navResources" class="nav-link active" href="resources.html">Resources</a></li>
+                    <li class="nav-item"><a id="navFAQ" class="nav-link" href="faq.html">FAQ</a></li>
+                    <li class="nav-item"><a id="navFeedback" class="nav-link" href="feedback.html">Feedback</a></li>
                 </ul>
             </div>
         </div>
@@ -41,18 +41,18 @@
                 <button class="btn btn-sm btn-outline-secondary size-btn" onclick="changeTextSize('increase')">A+</button>
             </div>
 
-            <h1 class="fw-bold text-center mb-2" style="color:#1e293b;"><i class="bi bi-book"></i> Educational Resources</h1>
-            <p class="text-center text-muted mb-5">Stay informed. Learn how to protect yourself and your loved ones from scams.</p>
+            <h1 id="pageHeadingResources" class="fw-bold text-center mb-2" style="color:#1e293b;"><i class="bi bi-book"></i> Educational Resources</h1>
+            <p class="text-center text-muted mb-5" data-i18n="resourcesIntro">Stay informed. Learn how to protect yourself and your loved ones from scams.</p>
 
             <!-- Reading Resources -->
-            <h4 class="fw-bold mb-3" style="color:#2b5797;"><i class="bi bi-newspaper"></i> Read & Learn</h4>
+            <h4 class="fw-bold mb-3" style="color:#2b5797;" data-i18n="readLearnHeading"><i class="bi bi-newspaper"></i> Read & Learn</h4>
             <div class="row g-4 mb-5">
                 <div class="col-md-6 col-lg-4">
                     <a href="https://www.scamshield.gov.sg/resources/scams-and-cybercrime-briefs/?page=1" target="_blank" rel="noopener" class="text-decoration-none">
                         <div class="card h-100 border-0 shadow-sm rounded-4 p-4 text-center hover-card">
                             <div class="fs-1 mb-2">📋</div>
-                            <h5 class="fw-bold text-dark">Scams & Cybercrime Briefs</h5>
-                            <p class="small text-muted mb-0">Latest reports on scam cases and cybercrime statistics in Singapore.</p>
+                            <h5 class="fw-bold text-dark" data-i18n="scamBriefsTitle">Scams & Cybercrime Briefs</h5>
+                            <p class="small text-muted mb-0" data-i18n="scamBriefsDesc">Latest reports on scam cases and cybercrime statistics in Singapore.</p>
                         </div>
                     </a>
                 </div>
@@ -60,8 +60,8 @@
                     <a href="https://www.icanactagainstscams.gov.sg/scam-trends" target="_blank" rel="noopener" class="text-decoration-none">
                         <div class="card h-100 border-0 shadow-sm rounded-4 p-4 text-center hover-card">
                             <div class="fs-1 mb-2">📈</div>
-                            <h5 class="fw-bold text-dark">Scam Trends</h5>
-                            <p class="small text-muted mb-0">Current scam trends and emerging patterns targeting Singaporeans.</p>
+                            <h5 class="fw-bold text-dark" data-i18n="scamTrendsTitle">Scam Trends</h5>
+                            <p class="small text-muted mb-0" data-i18n="scamTrendsDesc">Current scam trends and emerging patterns targeting Singaporeans.</p>
                         </div>
                     </a>
                 </div>
@@ -69,8 +69,8 @@
                     <a href="https://www.scamshield.gov.sg/resources/scam-bulletins/" target="_blank" rel="noopener" class="text-decoration-none">
                         <div class="card h-100 border-0 shadow-sm rounded-4 p-4 text-center hover-card">
                             <div class="fs-1 mb-2">🗞️</div>
-                            <h5 class="fw-bold text-dark">Scam Bulletins</h5>
-                            <p class="small text-muted mb-0">Regular bulletins with updates on new scam tactics and warnings.</p>
+                            <h5 class="fw-bold text-dark" data-i18n="scamBulletinsTitle">Scam Bulletins</h5>
+                            <p class="small text-muted mb-0" data-i18n="scamBulletinsDesc">Regular bulletins with updates on new scam tactics and warnings.</p>
                         </div>
                     </a>
                 </div>
@@ -78,8 +78,8 @@
                     <a href="https://www.scamshield.gov.sg/resources/straits-times-column/" target="_blank" rel="noopener" class="text-decoration-none">
                         <div class="card h-100 border-0 shadow-sm rounded-4 p-4 text-center hover-card">
                             <div class="fs-1 mb-2">📰</div>
-                            <h5 class="fw-bold text-dark">The Straits Times Column</h5>
-                            <p class="small text-muted mb-0">Anti-scam articles and columns published in The Straits Times.</p>
+                            <h5 class="fw-bold text-dark" data-i18n="columnTitle">The Straits Times Column</h5>
+                            <p class="small text-muted mb-0" data-i18n="columnDesc">Anti-scam articles and columns published in The Straits Times.</p>
                         </div>
                     </a>
                 </div>
@@ -87,8 +87,8 @@
                     <a href="https://www.scamshield.gov.sg/resources/public-education-materials/" target="_blank" rel="noopener" class="text-decoration-none">
                         <div class="card h-100 border-0 shadow-sm rounded-4 p-4 text-center hover-card">
                             <div class="fs-1 mb-2">📚</div>
-                            <h5 class="fw-bold text-dark">Public Education Materials</h5>
-                            <p class="small text-muted mb-0">Downloadable brochures, posters, and educational content for the community.</p>
+                            <h5 class="fw-bold text-dark" data-i18n="materialsTitle">Public Education Materials</h5>
+                            <p class="small text-muted mb-0" data-i18n="materialsDesc">Downloadable brochures, posters, and educational content for the community.</p>
                         </div>
                     </a>
                 </div>
@@ -96,22 +96,22 @@
                     <a href="https://www.scamshield.gov.sg/resources/videos/" target="_blank" rel="noopener" class="text-decoration-none">
                         <div class="card h-100 border-0 shadow-sm rounded-4 p-4 text-center hover-card">
                             <div class="fs-1 mb-2">🎬</div>
-                            <h5 class="fw-bold text-dark">Learn Through Videos</h5>
-                            <p class="small text-muted mb-0">Watch educational videos about how scams work and how to stay safe.</p>
+                            <h5 class="fw-bold text-dark" data-i18n="videosTitle">Learn Through Videos</h5>
+                            <p class="small text-muted mb-0" data-i18n="videosDesc">Watch educational videos about how scams work and how to stay safe.</p>
                         </div>
                     </a>
                 </div>
             </div>
 
             <!-- Interactive Resources -->
-            <h4 class="fw-bold mb-3" style="color:#2b5797;"><i class="bi bi-controller"></i> Interactive & Fun</h4>
+            <h4 class="fw-bold mb-3" style="color:#2b5797;" data-i18n="interactiveHeading"><i class="bi bi-controller"></i> Interactive & Fun</h4>
             <div class="row g-4 mb-5">
                 <div class="col-md-6">
                     <a href="https://www.icanactagainstscams.gov.sg/makan-quiz" target="_blank" rel="noopener" class="text-decoration-none">
                         <div class="card h-100 border-0 shadow-sm rounded-4 p-4 text-center hover-card">
                             <div class="fs-1 mb-2">🧠</div>
-                            <h5 class="fw-bold text-dark">Scam Quiz</h5>
-                            <p class="small text-muted mb-0">Test your scam knowledge! Take the interactive quiz to see if you can spot the scams.</p>
+                            <h5 class="fw-bold text-dark" data-i18n="quizTitle">Scam Quiz</h5>
+                            <p class="small text-muted mb-0" data-i18n="quizDesc">Test your scam knowledge! Take the interactive quiz to see if you can spot the scams.</p>
                         </div>
                     </a>
                 </div>
@@ -119,8 +119,8 @@
                     <a href="https://www.scamshield.gov.sg/get-involved/anti-scam-games/" target="_blank" rel="noopener" class="text-decoration-none">
                         <div class="card h-100 border-0 shadow-sm rounded-4 p-4 text-center hover-card">
                             <div class="fs-1 mb-2">🎮</div>
-                            <h5 class="fw-bold text-dark">Anti-Scam Games</h5>
-                            <p class="small text-muted mb-0">Play fun games that teach you how to identify and avoid common scams.</p>
+                            <h5 class="fw-bold text-dark" data-i18n="gamesTitle">Anti-Scam Games</h5>
+                            <p class="small text-muted mb-0" data-i18n="gamesDesc">Play fun games that teach you how to identify and avoid common scams.</p>
                         </div>
                     </a>
                 </div>
@@ -128,7 +128,7 @@
 
             <!-- Source Attribution -->
             <div class="text-center py-3 bg-light rounded-4">
-                <p class="small text-muted mb-0">All resources sourced from <a href="https://www.scamshield.gov.sg/" target="_blank" rel="noopener" class="fw-bold" style="color:#2b5797;">ScamShield Singapore (scamshield.gov.sg)</a> — an initiative by the Singapore Government.</p>
+                <p class="small text-muted mb-0" data-i18n="sourceAttribution">All resources sourced from <a href="https://www.scamshield.gov.sg/" target="_blank" rel="noopener" class="fw-bold" style="color:#2b5797;">ScamShield Singapore (scamshield.gov.sg)</a> — an initiative by the Singapore Government.</p>
             </div>
         </div>
     </section>
@@ -137,7 +137,7 @@
     <footer class="bg-dark text-white py-3 mb-0">
         <div class="container">
             <div class="d-flex flex-wrap justify-content-between align-items-center gap-3">
-                <div><strong>TrustBuddy</strong> · <a href="index.html" class="text-white-50 text-decoration-none">Home</a> · <a href="about.html" class="text-white-50 text-decoration-none">About</a> · <a href="scam-types.html" class="text-white-50 text-decoration-none">Scam Types</a> · <a href="faq.html" class="text-white-50 text-decoration-none">FAQ</a> · <a href="feedback.html" class="text-white-50 text-decoration-none">Feedback</a></div>
+                <div><strong>TrustBuddy</strong> · <a href="index.html" class="text-white-50 text-decoration-none" data-i18n="footerHome">Home</a> · <a href="about.html" class="text-white-50 text-decoration-none" data-i18n="footerAbout">About</a> · <a href="scam-types.html" class="text-white-50 text-decoration-none" data-i18n="footerScamTypes">Scam Types</a> · <a href="faq.html" class="text-white-50 text-decoration-none" data-i18n="footerFAQ">FAQ</a> · <a href="feedback.html" class="text-white-50 text-decoration-none" data-i18n="footerFeedback">Feedback</a></div>
                 <div class="d-flex gap-3 align-items-center">
                     <a href="https://www.instagram.com/" target="_blank" rel="noopener" class="text-white"><i class="bi bi-instagram"></i></a>
                     <a href="https://www.facebook.com/" target="_blank" rel="noopener" class="text-white"><i class="bi bi-facebook"></i></a>
@@ -150,6 +150,7 @@
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="script.js"></script>
     <script src="textsize.js"></script>
 </body>
 </html>

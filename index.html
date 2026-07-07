@@ -17,18 +17,18 @@
     <!-- NAVBAR -->
     <nav class="navbar navbar-expand-lg navbar-dark sticky-top shadow-sm" style="background-color: #1e293b;">
         <div class="container">
-            <a class="navbar-brand fw-bold fs-4" href="index.html"><img src="assets/logo.png" alt="TrustBuddy" height="36" class="me-2">TrustBuddy</a>
+            <a class="navbar-brand fw-bold fs-4" href="index.html"><img src="assets/logo.png" alt="TrustBuddy" height="36" class="me-2"><span id="navBrand">TrustBuddy</span></a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="mainNav">
                 <ul class="navbar-nav ms-auto">
-                    <li class="nav-item"><a class="nav-link active" href="index.html">Home</a></li>
-                    <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
-                    <li class="nav-item"><a class="nav-link" href="scam-types.html">Scam Types</a></li>
-                    <li class="nav-item"><a class="nav-link" href="resources.html">Resources</a></li>
-                    <li class="nav-item"><a class="nav-link" href="faq.html">FAQ</a></li>
-                    <li class="nav-item"><a class="nav-link" href="feedback.html">Feedback</a></li>
+                    <li class="nav-item"><a id="navHome" class="nav-link active" href="index.html">Home</a></li>
+                    <li class="nav-item"><a id="navAbout" class="nav-link" href="about.html">About</a></li>
+                    <li class="nav-item"><a id="navScamTypes" class="nav-link" href="scam-types.html">Scam Types</a></li>
+                    <li class="nav-item"><a id="navResources" class="nav-link" href="resources.html">Resources</a></li>
+                    <li class="nav-item"><a id="navFAQ" class="nav-link" href="faq.html">FAQ</a></li>
+                    <li class="nav-item"><a id="navFeedback" class="nav-link" href="feedback.html">Feedback</a></li>
                 </ul>
             </div>
         </div>
@@ -39,7 +39,7 @@
         <div class="container">
             <div class="logo-large" aria-hidden="true"><img src="assets/logo.png" alt="TrustBuddy Logo" height="100"></div>
             <h1 class="display-5 fw-bold" style="color: #1e293b;">TrustBuddy</h1>
-            <p class="lead text-secondary" id="tagline">Your friendly scam-checking assistant</p>
+            <p class="lead text-secondary" data-i18n="tagline">Your friendly scam-checking assistant</p>
             <!-- Accessibility Controls -->
             <div class="d-flex justify-content-center flex-wrap gap-3 mt-3">
                 <div class="d-flex align-items-center gap-2">
@@ -132,7 +132,7 @@
                             <div class="card border-0 bg-white shadow-sm rounded-3 p-3 h-100">
                                 <div class="fs-2">📞</div>
                                 <p class="fw-bold mb-1">Anti-Scam Helpline</p>
-                                <a href="tel:1799" class="fs-5 fw-bold text-decoration-none" style="color:#2b5797;">1799</a>
+                                <a class="fs-5 fw-bold text-decoration-none" style="color:#2b5797;">1799</a>
                             </div>
                         </div>
                         <div class="col-md-4">
@@ -146,7 +146,7 @@
                             <div class="card border-0 bg-white shadow-sm rounded-3 p-3 h-100">
                                 <div class="fs-2">🚔</div>
                                 <p class="fw-bold mb-1">Singapore Police</p>
-                                <a href="tel:999" class="fs-5 fw-bold text-decoration-none" style="color:#2b5797;">999</a>
+                                <a class="fs-5 fw-bold text-decoration-none" style="color:#2b5797;">999</a>
                             </div>
                         </div>
                     </div>
@@ -159,14 +159,14 @@
     <footer class="bg-dark text-white py-3 mb-0">
         <div class="container">
             <div class="d-flex flex-wrap justify-content-between align-items-center gap-3">
-                <div><strong>TrustBuddy</strong> · <a href="index.html" class="text-white-50 text-decoration-none">Home</a> · <a href="about.html" class="text-white-50 text-decoration-none">About</a> · <a href="scam-types.html" class="text-white-50 text-decoration-none">Scam Types</a> · <a href="faq.html" class="text-white-50 text-decoration-none">FAQ</a> · <a href="feedback.html" class="text-white-50 text-decoration-none">Feedback</a></div>
+                <div><strong>TrustBuddy</strong> · <a href="index.html" class="text-white-50 text-decoration-none" data-i18n="footerHome">Home</a> · <a href="about.html" class="text-white-50 text-decoration-none" data-i18n="footerAbout">About</a> · <a href="scam-types.html" class="text-white-50 text-decoration-none" data-i18n="footerScamTypes">Scam Types</a> · <a href="faq.html" class="text-white-50 text-decoration-none" data-i18n="footerFAQ">FAQ</a> · <a href="feedback.html" class="text-white-50 text-decoration-none" data-i18n="footerFeedback">Feedback</a></div>
                 <div class="d-flex gap-3 align-items-center">
                     <a href="https://www.instagram.com/" target="_blank" rel="noopener" class="text-white"><i class="bi bi-instagram"></i></a>
                     <a href="https://www.facebook.com/" target="_blank" rel="noopener" class="text-white"><i class="bi bi-facebook"></i></a>
                     <a href="https://www.tiktok.com/" target="_blank" rel="noopener" class="text-white"><i class="bi bi-tiktok"></i></a>
                     <a href="https://www.linkedin.com/" target="_blank" rel="noopener" class="text-white"><i class="bi bi-linkedin"></i></a>
                 </div>
-                <div class="text-white-50" id="footerPrivacy">© 2026 Prompt Pirates · Privacy · Terms</div>
+                <div class="text-white-50">© 2026 Prompt Pirates · Privacy · Terms</div>
             </div>
         </div>
     </footer>

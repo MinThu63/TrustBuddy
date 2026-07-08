@@ -869,7 +869,7 @@ function setLoadingState(isLoading) {
 
 function showResult(message, type) {
     const t = translations[currentLang];
-    const icon = type === 'success' ? '🛡️' : '⚠️';
+    const icon = type === 'success' ? '' : '⚠️';
     const headerText = type === 'success' ? t.resultHeader : t.errorHeader;
 
     // Store last result for re-rendering on language change
@@ -890,6 +890,7 @@ function showResult(message, type) {
         <div class="result-actions">
             <button class="btn-copy" onclick="copyResult()" type="button">📋 Copy Result</button>
             <button class="btn-copy" onclick="readAloud()" type="button" id="readAloudBtn">🔊 Read Aloud</button>
+            <button class="btn-copy" onclick="shareWhatsApp()" type="button">💬 Share via WhatsApp</button>
             <button class="btn-reset" onclick="resetForm()" type="button">${t.resetBtn}</button>
         </div>
         <div class="feedback-section" id="feedbackSection" style="display:none;">
@@ -1060,6 +1061,17 @@ function loadSpeechVoices() {
 if (window.speechSynthesis) {
     loadSpeechVoices();
     window.speechSynthesis.onvoiceschanged = loadSpeechVoices;
+}
+
+// ===== WHATSAPP SHARE =====
+function shareWhatsApp() {
+    const resultContent = resultBox.querySelector('.result-content');
+    if (!resultContent) return;
+
+    const text = resultContent.innerText;
+    const message = `🛡️ TrustBuddy Scam Check Result:\n\n${text}\n\nCheck suspicious messages for free: https://minthu63.github.io/TrustBuddy/`;
+    const encoded = encodeURIComponent(message);
+    window.open(`https://wa.me/?text=${encoded}`, '_blank');
 }
 
 function resetForm() {

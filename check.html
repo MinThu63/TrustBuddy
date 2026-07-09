@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TrustBuddy — Anti-Scam Assistant</title>
+    <meta name="description" content="AI-powered Anti-Scam Assistant that checks suspicious messages and links to keep you safe from scams.">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- NAVBAR -->
+    <nav class="navbar navbar-expand-lg navbar-dark sticky-top shadow-sm" style="background-color: #1e293b;">
+        <div class="container">
+            <a class="navbar-brand fw-bold fs-4" href="index.html"><img src="assets/logo.png" alt="TrustBuddy" height="36" class="me-2"><span id="navBrand">TrustBuddy</span></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="mainNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a id="navHome" class="nav-link" href="index.html">Home</a></li>
+                    <li class="nav-item"><a id="navAbout" class="nav-link" href="about.html">About</a></li>
+                    <li class="nav-item"><a id="navScamTypes" class="nav-link" href="scam-types.html">Scam Types</a></li>
+                    <li class="nav-item"><a id="navResources" class="nav-link" href="resources.html">Resources</a></li>
+                    <li class="nav-item"><a id="navFAQ" class="nav-link" href="faq.html">FAQ</a></li>
+                    <li class="nav-item"><a id="navFeedback" class="nav-link" href="feedback.html">Feedback</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- HERO -->
+    <section class="py-4 text-center">
+        <div class="container">
+            <div class="logo-large" aria-hidden="true"><img src="assets/logo.png" alt="TrustBuddy Logo" height="100"></div>
+            <h1 class="display-5 fw-bold" style="color: #1e293b;">TrustBuddy</h1>
+            <p class="lead text-secondary" data-i18n="tagline">Your friendly scam-checking assistant</p>
+            <!-- Accessibility Controls -->
+            <div class="d-flex justify-content-center flex-wrap gap-3 mt-3">
+                <div class="d-flex align-items-center gap-2">
+                    <span class="small fw-semibold text-muted" id="langLabel">Language:</span>
+                    <button class="btn btn-sm lang-btn active" style="background:#2b5797;border-color:#2b5797;color:#fff;" onclick="switchLang('en')">English</button>
+                    <button class="btn btn-sm btn-outline-dark lang-btn" onclick="switchLang('zh')">中文</button>
+                    <button class="btn btn-sm btn-outline-dark lang-btn" onclick="switchLang('ms')">Melayu</button>
+                    <button class="btn btn-sm btn-outline-dark lang-btn" onclick="switchLang('ta')">தமிழ்</button>
+                </div>
+                <div class="d-flex align-items-center gap-1">
+                    <span class="small fw-semibold text-muted" id="sizeLabel">Text Size:</span>
+                    <button class="btn btn-sm btn-outline-secondary size-btn" onclick="changeTextSize('decrease')">A−</button>
+                    <button class="btn btn-sm btn-secondary size-btn active" onclick="changeTextSize('reset')">A</button>
+                    <button class="btn btn-sm btn-outline-secondary size-btn" onclick="changeTextSize('increase')">A+</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- MAIN CHECK AREA -->
+    <section class="py-3">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-7 col-md-9">
+                    <!-- Tab Navigation -->
+                    <ul class="nav nav-pills nav-fill mb-3 gap-1" role="tablist">
+                        <li class="nav-item">
+                            <button class="nav-link active" id="tabCheck" onclick="switchTab('check')">
+                                <span id="tabCheckLabel">🔍 Check a Message</span>
+                            </button>
+                        </li>
+                        <li class="nav-item">
+                            <button class="nav-link" id="tabHistory" onclick="switchTab('history')">
+                                <span id="tabHistoryLabel">📋 History</span>
+                            </button>
+                        </li>
+                    </ul>
+
+                    <!-- Card -->
+                    <div class="card shadow-sm border-0 rounded-4">
+                        <div class="card-body p-4">
+
+                            <!-- CHECK TAB -->
+                            <section id="panelCheck" class="tab-panel active">
+                                <div class="mb-3">
+                                    <label for="scamInput" id="inputLabel" class="form-label fs-5 fw-bold"></label>
+                                    <textarea id="scamInput" class="form-control form-control-lg" rows="5" aria-describedby="privacyNote" placeholder="Paste a suspicious message below and I'll check it for you..."></textarea>
+                                    <p class="form-text mt-2" id="privacyNote">🔒 Your message is checked securely. We do not store your personal data.</p>
+                                </div>
+
+                                <button id="checkButton" class="btn btn-lg w-100 fw-bold py-3" style="background:#2b5797;border-color:#2b5797;color:#fff;" type="button" onclick="checkMessage()">
+                                    <span id="checkBtnLabel">🔍 Check This Message</span>
+                                </button>
+
+                                <div id="loadingStatus" class="loading" role="status" aria-live="polite">
+                                    <span id="loadingLabel">Analysing — please wait...</span>
+                                    <div class="spinner" aria-hidden="true"></div>
+                                </div>
+
+                                <div id="resultBox" class="result-box" aria-live="polite"></div>
+                            </section>
+
+                            <!-- HISTORY TAB -->
+                            <section id="panelHistory" class="tab-panel">
+                                <div class="d-flex justify-content-between align-items-center mb-3">
+                                    <h2 class="fs-5 fw-bold mb-0" id="historyTitle">Previous Checks</h2>
+                                    <button class="btn btn-sm btn-outline-danger" onclick="clearHistory()" type="button" id="clearHistoryBtn">🗑️ Clear All</button>
+                                </div>
+                                <div id="historyList" class="history-list">
+                                    <p class="text-muted text-center py-4" id="historyEmpty">No messages checked yet. Your history will appear here.</p>
+                                </div>
+                            </section>
+                        </div>
+                    </div>
+
+                    <!-- Connection Status removed -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- EMERGENCY CONTACTS -->
+    <section class="py-4 mt-4 bg-warning bg-opacity-10">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8 text-center">
+                    <h3 class="fw-bold mb-3" style="color:#1e293b;" id="emergencyTitle">🚨 Think you've been scammed?</h3>
+                    <div class="row g-3">
+                        <div class="col-md-4">
+                            <div class="card border-0 bg-white shadow-sm rounded-3 p-3 h-100">
+                                <div class="fs-2">📞</div>
+                                <p class="fw-bold mb-1">Anti-Scam Helpline</p>
+                                <a class="fs-5 fw-bold text-decoration-none" style="color:#2b5797;">1799</a>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="card border-0 bg-white shadow-sm rounded-3 p-3 h-100">
+                                <div class="fs-2">📱</div>
+                                <p class="fw-bold mb-1">ScamShield App</p>
+                                <a href="https://www.scamshield.org.sg" target="_blank" rel="noopener" class="text-decoration-none" style="color:#2b5797;">scamshield.org.sg</a>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="card border-0 bg-white shadow-sm rounded-3 p-3 h-100">
+                                <div class="fs-2">🚔</div>
+                                <p class="fw-bold mb-1">Singapore Police</p>
+                                <a class="fs-5 fw-bold text-decoration-none" style="color:#2b5797;">999</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="bg-dark text-white py-3 mb-0">
+        <div class="container">
+            <div class="d-flex flex-wrap justify-content-between align-items-center gap-3">
+                <div><strong>TrustBuddy</strong> · <a href="index.html" class="text-white-50 text-decoration-none" data-i18n="footerHome">Home</a> · <a href="about.html" class="text-white-50 text-decoration-none" data-i18n="footerAbout">About</a> · <a href="scam-types.html" class="text-white-50 text-decoration-none" data-i18n="footerScamTypes">Scam Types</a> · <a href="faq.html" class="text-white-50 text-decoration-none" data-i18n="footerFAQ">FAQ</a> · <a href="feedback.html" class="text-white-50 text-decoration-none" data-i18n="footerFeedback">Feedback</a></div>
+                <div class="d-flex gap-3 align-items-center">
+                    <a href="https://www.instagram.com/" target="_blank" rel="noopener" class="text-white"><i class="bi bi-instagram"></i></a>
+                    <a href="https://www.facebook.com/" target="_blank" rel="noopener" class="text-white"><i class="bi bi-facebook"></i></a>
+                    <a href="https://www.tiktok.com/" target="_blank" rel="noopener" class="text-white"><i class="bi bi-tiktok"></i></a>
+                    <a href="https://www.linkedin.com/" target="_blank" rel="noopener" class="text-white"><i class="bi bi-linkedin"></i></a>
+                </div>
+                <div class="text-white-50">© 2026 Prompt Pirates · Privacy · Terms</div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

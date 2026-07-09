@@ -163,7 +163,19 @@ const translations = {
         feedbackClarityEasy: "😊 Easy",
         feedbackClarityOk: "😐 OK",
         feedbackClarityConfusing: "😕 Confusing",
-        sourceAttribution: "All resources sourced from <a href='https://www.scamshield.gov.sg/' target='_blank' rel='noopener'>ScamShield Singapore (scamshield.gov.sg)</a> — an initiative by the Singapore Government."
+        sourceAttribution: "All resources sourced from <a href='https://www.scamshield.gov.sg/' target='_blank' rel='noopener'>ScamShield Singapore (scamshield.gov.sg)</a> — an initiative by the Singapore Government.",
+        indexTrustBuddy: "Don't get scammed.<br>Ask TrustBuddy.",
+        indexReceivedText: "Received a strange text message? Not sure if it's real or a scam? Just paste it here — our AI will check it for you in seconds and tell you if it's safe.",
+        indexTrustBuddyHelp: "<strong>TrustBuddy helps you:</strong><br>✅ Check if a suspicious message is real or a scam<br>✅ Spot scammers pretending to be your child or the police<br>✅ Learn about common scams and how to protect yourself",
+        indexTrustBuddyHelpsYou: "🌏 4 Languages | 🔊 Read Aloud | 🔒 100% Private |💰 Free Forever" ,
+        indexCheckMessage: "🔍 Start Checking Messages",
+        indexScamProfiles: "Scam Profiles",
+        indexLanguages:"Languages",
+        indexAvailable:"Available",
+        indexBuiltForSeniors:"Built for seniors in Singapore · Powered by AI · No sign-up required"
+    
+    
+    
     },
     zh: {
         tagline: "您的防诈骗小助手",
@@ -321,7 +333,17 @@ const translations = {
         feedbackClarityEasy: "😊 容易理解",
         feedbackClarityOk: "😐 一般",
         feedbackClarityConfusing: "😕 难以理解",
-        sourceAttribution: "所有资源均来自 <a href='https://www.scamshield.gov.sg/' target='_blank' rel='noopener'>新加坡 ScamShield（scamshield.gov.sg）</a> — 由新加坡政府发起的倡议。"
+        sourceAttribution: "所有资源均来自 <a href='https://www.scamshield.gov.sg/' target='_blank' rel='noopener'>新加坡 ScamShield（scamshield.gov.sg）</a> — 由新加坡政府发起的倡议。",
+        indexTrustBuddy: "别被骗。<br>询问 TrustBuddy。",
+        indexReceivedText: "收到一条奇怪的短信？不确定是真实信息还是诈骗？只需将内容贴到这里，我们的 AI 会在几秒钟内为您检查，并告诉您是否安全。",
+        indexTrustBuddyHelp: "<strong>TrustBuddy 可以帮助您：</strong><br>✅ 检查可疑信息是真实还是诈骗<br>✅ 识别冒充您孩子或警方的诈骗分子<br>✅ 学习常见诈骗手法以及如何保护自己",
+        indexTrustBuddyHelpsYou: "🌏 4 种语言 | 🔊 语音朗读 | 🔒 100% 保护隐私 | 💰 永久免费",
+        indexCheckMessage: "🔍 开始检查信息",
+        indexScamProfiles: "诈骗档案",
+        indexLanguages: "语言",
+        indexAvailable: "可用",
+        indexBuiltForSeniors: "专为新加坡长者打造 · AI 驱动 · 无需注册"
+  
     },
     ms: {
         tagline: "Pembantu anti-penipuan anda",
@@ -479,7 +501,18 @@ const translations = {
         feedbackClarityEasy: "😊 Mudah",
         feedbackClarityOk: "😐 OK",
         feedbackClarityConfusing: "😕 Mengelirukan",
-        sourceAttribution: "Semua sumber adalah daripada <a href='https://www.scamshield.gov.sg/' target='_blank' rel='noopener'>ScamShield Singapura (scamshield.gov.sg)</a> — inisiatif kerajaan Singapura."
+        sourceAttribution: "Semua sumber adalah daripada <a href='https://www.scamshield.gov.sg/' target='_blank' rel='noopener'>ScamShield Singapura (scamshield.gov.sg)</a> — inisiatif kerajaan Singapura.",
+        indexTrustBuddy: "Jangan jadi mangsa penipuan.<br>Tanya TrustBuddy.",
+        indexReceivedText: "Menerima mesej teks yang mencurigakan? Tidak pasti sama ada ia benar atau satu penipuan? Hanya tampalkan mesej itu di sini — AI kami akan menyemaknya dalam beberapa saat dan memberitahu anda sama ada ia selamat.",
+        indexTrustBuddyHelp: "<strong>TrustBuddy membantu anda:</strong><br>✅ Menyemak sama ada mesej yang mencurigakan adalah benar atau penipuan<br>✅ Mengenal pasti penipu yang menyamar sebagai anak anda atau pihak polis<br>✅ Mempelajari penipuan yang biasa berlaku dan cara melindungi diri",
+        indexTrustBuddyHelpsYou: "🌏 4 Bahasa | 🔊 Bacaan Suara | 🔒 100% Peribadi | 💰 Percuma Selamanya",
+        indexCheckMessage: "🔍 Mula Menyemak Mesej",
+        indexScamProfiles: "Profil Penipuan",
+        indexLanguages: "Bahasa",
+        indexAvailable: "Tersedia",
+        indexBuiltForSeniors: "Direka khas untuk warga emas di Singapura · Dikuasakan oleh AI · Tiada pendaftaran diperlukan"
+    
+    
     },
     ta: {
         tagline: "உங்கள் நம்பகமான மோசடி-சோதனை உதவியாளர்",
@@ -637,20 +670,28 @@ const translations = {
         feedbackClarityEasy: "😊 எளிது",
         feedbackClarityOk: "😐 பரவாயில்லை",
         feedbackClarityConfusing: "😕 குழப்பமாக இருந்தது",
-        sourceAttribution: "அனைத்து ஆதாரங்களும் <a href='https://www.scamshield.gov.sg/' target='_blank' rel='noopener'>ScamShield சிங்கப்பூர் (scamshield.gov.sg)</a> இலிருந்து பெறப்பட்டவை — சிங்கப்பூர் அரசாங்கத்தின் முயற்சி."
+        sourceAttribution: "அனைத்து ஆதாரங்களும் <a href='https://www.scamshield.gov.sg/' target='_blank' rel='noopener'>ScamShield சிங்கப்பூர் (scamshield.gov.sg)</a> இலிருந்து பெறப்பட்டவை — சிங்கப்பூர் அரசாங்கத்தின் முயற்சி.",
+        indexTrustBuddy: "மோசடியில் சிக்காதீர்கள்.<br>TrustBuddy-யிடம் கேளுங்கள்.",
+        indexReceivedText: "சந்தேகத்திற்கிடமான குறுஞ்செய்தி கிடைத்ததா? அது உண்மையா அல்லது மோசடியா என்று தெரியவில்லையா? அதை இங்கே ஒட்டுங்கள் — எங்கள் AI சில நொடிகளில் அதைச் சரிபார்த்து, அது பாதுகாப்பானதா என்பதை உங்களுக்குத் தெரிவிக்கும்.",
+        indexTrustBuddyHelp: "<strong>TrustBuddy உங்களுக்கு உதவுகிறது:</strong><br>✅ சந்தேகத்திற்கிடமான செய்தி உண்மையா அல்லது மோசடியா என்பதைச் சரிபார்க்க<br>✅ உங்கள் குழந்தை அல்லது காவல்துறை என நடிக்கும் மோசடிக்காரர்களைக் கண்டறிய<br>✅ பொதுவான மோசடிகளைப் பற்றி அறிந்து, உங்களை எவ்வாறு பாதுகாத்துக்கொள்வது என்பதை கற்றுக்கொள்ள",
+        indexTrustBuddyHelpsYou: "🌏 4 மொழிகள் | 🔊 குரல் வாசிப்பு | 🔒 100% தனியுரிமை | 💰 எப்போதும் இலவசம்",
+        indexCheckMessage: "🔍 செய்தியைச் சரிபார்க்கத் தொடங்குங்கள்",
+        indexScamProfiles: "மோசடி வகைகள்",
+        indexLanguages: "மொழிகள்",
+        indexAvailable: "கிடைக்கும்",
+        indexBuiltForSeniors: "சிங்கப்பூரின் மூத்த குடிமக்களுக்காக உருவாக்கப்பட்டது · AI மூலம் இயங்குகிறது · பதிவு தேவையில்லை"
     }
 };
 
 // State
 let currentLang = 'en';
-let currentSize = 20;
+
 let lastResult = null; // Store last result so we can re-render on lang change
 let originalResultText = ''; // Always keep the original English response for translations
 let resultLang = 'en'; // Keep the displayed result language for speech output
 let availableVoices = [];
 
-const MIN_SIZE = 16;
-const MAX_SIZE = 28;
+
 const LANG_ORDER = ['en', 'zh', 'ms', 'ta'];
 
 // DOM Elements
@@ -762,28 +803,7 @@ function initLanguage() {
 
 document.addEventListener('DOMContentLoaded', initLanguage);
 
-// ===== TEXT SIZE CONTROLS =====
-function changeTextSize(action) {
-    if (action === 'increase' && currentSize < MAX_SIZE) {
-        currentSize += 2;
-    } else if (action === 'decrease' && currentSize > MIN_SIZE) {
-        currentSize -= 2;
-    } else if (action === 'reset') {
-        currentSize = 20;
-    }
 
-    document.documentElement.style.fontSize = currentSize + 'px';
-    updateSizeButtons();
-    localStorage.setItem('silverShieldTextSize', currentSize);
-}
-
-function updateSizeButtons() {
-    const btns = document.querySelectorAll('.size-btn');
-    btns.forEach(btn => btn.classList.remove('active'));
-    if (currentSize === 20) btns[1].classList.add('active');
-    else if (currentSize > 20) btns[2].classList.add('active');
-    else btns[0].classList.add('active');
-}
 
 // ===== TAB SWITCHING =====
 function switchTab(tab) {
@@ -1361,10 +1381,12 @@ async function submitFeedback() {
 
 async function submitStandaloneFeedback() {
     const comment = document.getElementById('feedbackCommentStandalone')?.value || '';
+    const userMessage = inputField?.value?.trim() || '(submitted from feedback page)';
+    const aiVerdict = originalResultText || '(no verdict - standalone feedback)';
 
     const payload = {
-        user_message: inputField.value.trim() || '(no message submitted)',
-        ai_verdict: originalResultText || '(no verdict yet)',
+        user_message: userMessage,
+        ai_verdict: aiVerdict,
         helpful: feedbackData.helpful,
         accurate: feedbackData.accurate,
         clarity: feedbackData.clarity,
@@ -1388,8 +1410,9 @@ async function submitStandaloneFeedback() {
 
     // Reset
     feedbackData = { helpful: '', accurate: '', clarity: '' };
-    document.querySelectorAll('#panelFeedback .fb-btn').forEach(b => b.classList.remove('selected'));
-    document.getElementById('feedbackCommentStandalone').value = '';
+    document.querySelectorAll('.fb-btn').forEach(b => b.classList.remove('selected'));
+    const standaloneComment = document.getElementById('feedbackCommentStandalone');
+    if (standaloneComment) standaloneComment.value = '';
 }
 
 // ===== KEYBOARD SHORTCUT =====
@@ -1401,13 +1424,7 @@ inputField.addEventListener('keydown', (e) => {
 
 // ===== INIT: LOAD SAVED PREFERENCES =====
 (function init() {
-    // Load text size
-    const savedSize = localStorage.getItem('silverShieldTextSize');
-    if (savedSize) {
-        currentSize = parseInt(savedSize);
-        document.documentElement.style.fontSize = currentSize + 'px';
-        updateSizeButtons();
-    }
+    
 
     // Load language
     const savedLang = localStorage.getItem('silverShieldLang');

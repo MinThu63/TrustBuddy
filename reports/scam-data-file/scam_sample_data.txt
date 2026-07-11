@@ -1,0 +1,22 @@
+SCAM ADVISORY DATABASE - BATCH 001
+
+Scam Category: Family Impersonation (WhatsApp)
+Risk Level: CRITICAL
+Target Demographic: Elderly Parents / Grandparents
+Common Phrases Used: "Hi Mum, I dropped my phone in the toilet", "Hi Dad, my phone is broken, this is my temporary number", "I need to pay a bill urgently but my banking app is locked on this new phone."
+Modus Operandi: Scammer messages the victim claiming to be their child who lost or broke their phone. After establishing trust using a fake crisis, they ask the victim to transfer money to a "friend's" bank account or via PayNow to pay an urgent bill.
+Safety Advice: Do not transfer any money. Hang up and call your child's original phone number to verify. Ask a personal question only your real child would know the answer to. 
+
+Scam Category: Fake Banking SMS (Phishing)
+Risk Level: CRITICAL
+Target Demographic: General Public, Elderly
+Common Phrases Used: "Your account has been suspended", "Unusual login detected", "Click here to verify your identity: http://secure-update-sg.com"
+Modus Operandi: Scammer sends an SMS that looks like it comes from a legitimate bank (e.g., DBS, OCBC, UOB). The message creates a sense of panic (account locked) and includes a link. The link goes to a fake website designed to steal login credentials and One-Time Passwords (OTPs).
+Safety Advice: Banks will never send SMS messages with clickable links. Never click on links in SMS. Open your official banking app directly or call the official bank hotline printed on the back of your credit card.
+
+Scam Category: Government Official Impersonation
+Risk Level: HIGH
+Target Demographic: Retirees
+Common Phrases Used: "This is the Singapore Police Force", "Your bank account is involved in money laundering", "Please transfer your funds to this secure safe account for investigation."
+Modus Operandi: Victim receives a phone call from someone pretending to be from the Police, MAS, or ICA. Scammer claims the victim is under investigation and demands they transfer their life savings to a "secure" third-party account while the investigation is ongoing.
+Safety Advice: The police or government officials will NEVER ask you to transfer money to a "safe account" or ask for your banking passwords. Hang up immediately and dial 999 if unsure.

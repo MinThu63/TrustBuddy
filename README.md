@@ -2,7 +2,8 @@
 
 An AI-powered Anti-Scam Assistant designed to protect senior citizens in Singapore from scams. Built by **Prompt Pirates** for the Skills Ignition SG AI Challenge 2026.
 
-🔗 **Live Demo:** https://minthu63.github.io/TrustBuddy/
+🔗 **Live Demo:** https://minthu63.github.io/TrustBuddy/  
+🎬 **Video Explanation:** https://share.synthesia.io/ed7d9df1-c09f-445e-8f1a-72e5f93b1c2e
 
 ---
 
@@ -96,19 +97,29 @@ Every aspect of the experience — from oversized buttons to plain-language resp
 
 ```
 trustbuddy/
-├── index.html              → Landing page (intro + CTA)
-├── check.html              → Main scam checker (textarea + history)
-├── about.html              → About, How It Works, Features
-├── scam-types.html         → 8 common scam types with protection tips
-├── resources.html          → Educational links (ScamShield, quizzes, games)
-├── faq.html                → FAQ with Bootstrap accordion
-├── feedback.html           → Feedback form (sends to n8n)
-├── style.css               → Custom styles + Bootstrap overrides
-├── script.js               → Main app logic (webhook, i18n, TTS, history)
-├── textsize.js             → Text size controls (shared across pages)
+├── index.html                          → Landing page (intro + CTA)
+├── check.html                          → Main scam checker (textarea + history)
+├── about.html                          → About, How It Works, Features
+├── scam-types.html                     → 8 common scam types with protection tips
+├── resources.html                      → Educational links (ScamShield, quizzes, games)
+├── faq.html                            → FAQ with Bootstrap accordion
+├── feedback.html                       → Feedback form (sends to n8n)
+├── style.css                           → Custom styles + Bootstrap overrides
+├── script.js                           → Main app logic (webhook, i18n, TTS, history)
+├── textsize.js                         → Text size controls (shared across pages)
 ├── assets/
-│   └── logo.png            → TrustBuddy logo
-├── README.md               → This file
+│   └── logo.png                        → TrustBuddy logo
+├── individual-deliverables/
+│   └── minthu/
+│       └── code-node-entity-extraction.js → n8n Code node (entity extraction + logging)
+├── reports/
+│   ├── team-report/                    → Final team report (Word doc)
+│   ├── individual-contributions/       → Individual contribution statements
+│   ├── testing-report/                 → Testing documentation (30 test cases)
+│   ├── scam-data-file/                 → RAG scam advisory data (.txt files)
+│   └── pptSlides/                      → Presentation slides
+├── docs/                               → Internal project documentation
+├── README.md                           → This file
 └── .gitignore
 ```
 

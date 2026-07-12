@@ -24,7 +24,7 @@ An AI-powered Anti-Scam Assistant designed to protect senior citizens in Singapo
 
 ## Motivation
 
-Scam cases in Singapore have reached record highs, with seniors being the most vulnerable demographic. Many elderly citizens struggle to identify sophisticated scam messages — fake bank alerts, government impersonation calls, family emergency texts, and phishing links.
+Scam cases in Singapore have reached record highs, with seniors being the most vulnerable demographic. Many elderly citizens struggle to identify sophisticated scam messages — fake bank alerts, government impersonation calls, family emergency texts, and phishing links. https://www.straitstimes.com/singapore/scam-tracker-what-are-the-latest-trends-in-spore-and-how-much-money-has-been-lost
 
 TrustBuddy provides a **simple, accessible tool** where seniors can paste any suspicious message and receive an instant AI-powered verdict. The system uses Retrieval-Augmented Generation (RAG) to search a curated database of known scam profiles, ensuring responses are grounded in real, verified scam data specific to Singapore.
 
@@ -197,4 +197,4 @@ http://localhost:3000
 
 ## License
 
-Created for the C240 Skills Ignition SG AI Challenge 2026. For educational purposes only.
+Created for the C240 Final Assessment. For educational purposes only.

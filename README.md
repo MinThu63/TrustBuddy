@@ -21,7 +21,8 @@ An AI-powered Anti-Scam Assistant designed to protect senior citizens in Singapo
 - [License](#license)
 
 ---
-<img width="1024" height="579" alt="image" src="https://github.com/user-attachments/assets/a7916171-b4ff-4082-893d-3a772de9595a" />
+<img width="1024" height="572" alt="image" src="https://github.com/user-attachments/assets/a704e857-15ad-451a-832c-cd6054f40e35" />
+
 
 ## Motivation
 

@@ -1,0 +1,428 @@
+{
+  "name": "C240 FA-Min Thu",
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "d3705ce9-d2b0-48dc-ba72-5bdb76011802",
+        "responseMode": "responseNode",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2.1,
+      "position": [
+        -96,
+        0
+      ],
+      "id": "8c7e27bb-7eb2-4bb1-9cf2-b1445d7cb0bb",
+      "name": "Webhook",
+      "webhookId": "d3705ce9-d2b0-48dc-ba72-5bdb76011802"
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "={{ $json.body.user_message }}",
+        "options": {
+          "systemMessage": "You are TrustBuddy, an AI-powered Anti-Scam Assistant built to protect senior citizens in Singapore from scams.\n\nYour role:\n- Analyse messages or links submitted by users and determine if they are scams.\n- Always search the scam database (scam_database_search tool) before responding. This is mandatory for every query.\n- Compare the user's message against known scam profiles, patterns, and warning signs in the database.\n\nHow to respond:\n1. Start with a clear verdict: 🚨 SCAM ALERT, ⚠️ SUSPICIOUS, or ✅ LIKELY SAFE.\n2. Explain WHY in simple, plain language. Avoid technical jargon. Write as if speaking to a 70-year-old grandparent.\n3. Identify the specific scam type if matched (e.g., \"Family Impersonation\", \"Phishing SMS\", \"Fake Bank Alert\", \"Investment Scam\", \"Love Scam\").\n4. List 2-3 red flags found in the message.\n5. Give a clear, actionable next step (e.g., \"Do NOT click the link\", \"Call your bank directly at their official number\", \"Ask your family member a personal question only they would know\").\n\nRules:\n- NEVER tell the user a message is safe if it contains urgency tactics, requests for money, suspicious links, or impersonation attempts.\n- If unsure, lean towards SUSPICIOUS rather than LIKELY SAFE. It is better to be cautious.\n- Keep responses concise — no more than 150 words. Seniors may struggle with long text.\n- Do not use markdown headers or complex formatting. Use simple line breaks and bold (**text**) only.\n- Be warm, reassuring, and calm. Many users will be anxious or panicking.\n- Reference Singapore-specific context: local banks (DBS, OCBC, UOB), government agencies (CPF, IRAS, MOH), delivery services (SingPost, Ninja Van), and common local scam patterns.\n- If the message appears to be a normal legitimate message (e.g., a polyclinic appointment reminder, official government SMS), reassure the user it appears safe and explain why.\n\nYou must ALWAYS use the scam_database_search tool before giving your assessment. Never respond based solely on general knowledge without checking the database first.\nAt the end of every response, include a confidence score on a new line:\n**Confidence: X%** (based on how closely the message matches known scam patterns in the database. 90-100% = strong match found, 70-89% = partial match, below 70% = no direct match found but suspicious based on general patterns)\n"
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 3.1,
+      "position": [
+        96,
+        0
+      ],
+      "id": "4c2afd68-490b-4f95-8e4c-5f2d6b96dd2a",
+      "name": "AI Agent"
+    },
+    {
+      "parameters": {
+        "model": "deepseek/deepseek-v4-flash",
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenRouter",
+      "typeVersion": 1,
+      "position": [
+        0,
+        176
+      ],
+      "id": "224e7704-b7ce-4f1e-a1f1-1a8390e707e2",
+      "name": "OpenRouter Chat Model",
+      "credentials": {
+        "openRouterApi": {
+          "id": "e7BWm5ZN3CIeeox9",
+          "name": "OpenRouter account 25050551-Min Thu"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "dataType": "binary",
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.documentDefaultDataLoader",
+      "typeVersion": 1.1,
+      "position": [
+        -288,
+        128
+      ],
+      "id": "a7d0df8d-5f85-4f24-9ca8-973bc1b4f164",
+      "name": "Default Data Loader"
+    },
+    {
+      "parameters": {
+        "formTitle": "Upload your data to test RAG",
+        "formFields": {
+          "values": [
+            {
+              "fieldLabel": "Upload your file(s)",
+              "fieldType": "file",
+              "acceptFileTypes": ".pdf, .csv, .txt",
+              "requiredField": true
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.formTrigger",
+      "typeVersion": 2.2,
+      "position": [
+        -752,
+        -16
+      ],
+      "id": "c9590bc0-34a0-429c-99cf-727a697fb05d",
+      "name": "Upload your file here",
+      "webhookId": "a89e104f-da8b-4d09-a568-3cf864b3cfb2"
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.embeddingsOpenAi",
+      "typeVersion": 1.2,
+      "position": [
+        -304,
+        432
+      ],
+      "id": "73350a52-f030-42d5-80d8-863a430fe3f4",
+      "name": "Embeddings OpenAI",
+      "credentials": {
+        "openAiApi": {
+          "id": "efMCijwBAzyFwqgg",
+          "name": "OpenAI account 21"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "mode": "insert",
+        "pineconeIndex": {
+          "__rl": true,
+          "value": "silvershield",
+          "mode": "id"
+        },
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.vectorStorePinecone",
+      "typeVersion": 1.3,
+      "position": [
+        -544,
+        -16
+      ],
+      "id": "6d6d531b-2dea-4b3c-8ecf-48c2ec67fcc9",
+      "name": "Pinecone Vector Store",
+      "credentials": {
+        "pineconeApi": {
+          "id": "Dhaz0L96M7bHGvIo",
+          "name": "Pinecone account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "mode": "retrieve-as-tool",
+        "toolDescription": "Use this tool to search the official database for matching scam profiles, warning signs, and safety advice whenever a user submits a suspicious message.",
+        "pineconeIndex": {
+          "__rl": true,
+          "value": "silvershield",
+          "mode": "id"
+        },
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.vectorStorePinecone",
+      "typeVersion": 1.3,
+      "position": [
+        224,
+        224
+      ],
+      "id": "698bef64-377d-4bf8-8d6b-3cb438bb3241",
+      "name": "Pinecone Vector Store1",
+      "credentials": {
+        "pineconeApi": {
+          "id": "Dhaz0L96M7bHGvIo",
+          "name": "Pinecone account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsCode": "const output = $input.first().json.output;\n\n// Get user message\nconst userMessage = $('Webhook').first().json.body.user_message || '';\n\n// Determine risk level\nlet riskLevel = 'Unknown';\nif (output.includes('SCAM ALERT')) riskLevel = 'CRITICAL';\nelse if (output.includes('SUSPICIOUS')) riskLevel = 'SUSPICIOUS';\nelse if (output.includes('LIKELY SAFE') || output.includes('SAFE')) riskLevel = 'SAFE';\n\n// Extract scam category\nlet category = 'Unknown';\nconst typeMatch = output.match(/[\"\"]([^\"\"]+)[\"\"]/);\nif (typeMatch) category = typeMatch[1];\n\n// Extract entities ONLY from the user's original message\nlet entitiesList = [];\n\n// Phone numbers (7-12 digits)\nconst phones = userMessage.match(/\\b\\d[\\d\\s-]{5,}\\d\\b/g);\nif (phones) {\n    phones.forEach(p => {\n        const cleaned = p.replace(/[\\s-]/g, '');\n        if (cleaned.length >= 7 && cleaned.length <= 12) {\n            entitiesList.push('Phone: ' + p.trim());\n        }\n    });\n}\n\n// URLs\nconst links = userMessage.match(/https?:\\/\\/[^\\s\"']+/gi);\nif (links) entitiesList.push(...links.map(l => 'Link: ' + l));\n\n// Domains without http\nconst domains = userMessage.match(/\\b[a-zA-Z0-9-]+\\.(com|org|net|sg|io|xyz|info|biz)\\b[^\\s]*/gi);\nif (domains) entitiesList.push(...domains.map(d => 'Link: ' + d));\n\n// Emails\nconst emails = userMessage.match(/[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}/g);\nif (emails) entitiesList.push(...emails.map(e => 'Email: ' + e));\n\n// Money\nconst money = userMessage.match(/(?:SGD|S\\$|\\$)\\s*[\\d,.]+/gi);\nif (money) entitiesList.push(...money.map(m => 'Amount: ' + m));\n\n// Remove duplicates\nconst entities = [...new Set(entitiesList)].join(', ') || 'None detected';\n\n// Action\nlet action = 'Review AI verdict for guidance';\nconst actionMatch = output.match(/Do [Nn][Oo][Tt][^.!\\n]+[.!]/);\nif (actionMatch) action = actionMatch[0];\n\nreturn [{\n    json: {\n        timestamp: new Date().toISOString(),\n        user_message: userMessage,\n        category: category,\n        risk_level: riskLevel,\n        entities: entities,\n        action: action,\n        ai_verdict: output\n    }\n}];\n"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        576,
+        48
+      ],
+      "id": "654b8795-8c28-4de4-a1b6-97c2beed37a7",
+      "name": "Code in JavaScript"
+    },
+    {
+      "parameters": {
+        "operation": "append",
+        "documentId": {
+          "__rl": true,
+          "value": "13bCqNNk62IfnuBybxGKogzmJa8Xtkr2a5QPuHW9Cr5s",
+          "mode": "list",
+          "cachedResultName": "Silver Shield Logs",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/13bCqNNk62IfnuBybxGKogzmJa8Xtkr2a5QPuHW9Cr5s/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "gid=0",
+          "mode": "list",
+          "cachedResultName": "Sheet1",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/13bCqNNk62IfnuBybxGKogzmJa8Xtkr2a5QPuHW9Cr5s/edit#gid=0"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "Timestamp": "={{ $json.timestamp }}",
+            "User Message": "={{ $json.user_message }}",
+            "Scam Category": "={{ $json.category }}",
+            "Risk Level": "={{ $json.risk_level }}",
+            "Extracted Entities": "={{ $json.entities }}",
+            "Action Required": "={{ $json.action }}",
+            "AI Verdict": "=\t{{ $json.ai_verdict }}"
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "Timestamp",
+              "displayName": "Timestamp",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "User Message",
+              "displayName": "User Message",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Scam Category",
+              "displayName": "Scam Category",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Risk Level",
+              "displayName": "Risk Level",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Extracted Entities",
+              "displayName": "Extracted Entities",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Action Required",
+              "displayName": "Action Required",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "AI Verdict",
+              "displayName": "AI Verdict",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.7,
+      "position": [
+        768,
+        48
+      ],
+      "id": "4b120269-3b11-4065-8880-149919868262",
+      "name": "Append row in sheet",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "kma41WfimOglZ20G",
+          "name": "Google Sheets account 230-Min Thu"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.5,
+      "position": [
+        560,
+        -144
+      ],
+      "id": "a64ce643-6fa5-4ab8-a14b-5a612c3189e0",
+      "name": "Respond to Webhook"
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "Webhook": {
+      "main": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenRouter Chat Model": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Default Data Loader": {
+      "ai_document": [
+        [
+          {
+            "node": "Pinecone Vector Store",
+            "type": "ai_document",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Upload your file here": {
+      "main": [
+        [
+          {
+            "node": "Pinecone Vector Store",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Embeddings OpenAI": {
+      "ai_embedding": [
+        [
+          {
+            "node": "Pinecone Vector Store1",
+            "type": "ai_embedding",
+            "index": 0
+          },
+          {
+            "node": "Pinecone Vector Store",
+            "type": "ai_embedding",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Pinecone Vector Store1": {
+      "ai_tool": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "AI Agent": {
+      "main": [
+        [
+          {
+            "node": "Respond to Webhook",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Code in JavaScript",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Code in JavaScript": {
+      "main": [
+        [
+          {
+            "node": "Append row in sheet",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Respond to Webhook": {
+      "main": [
+        []
+      ]
+    }
+  },
+  "active": true,
+  "settings": {
+    "executionOrder": "v1",
+    "binaryMode": "separate",
+    "availableInMCP": false
+  },
+  "versionId": "1443659e-439a-4d38-b9b4-ac4012423df4",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "d4ebadb9d95df0efff4e8784a1811953a63bd62f8d7a2a45b7c8f23992108d48"
+  },
+  "nodeGroups": [],
+  "id": "Atu7zluiM8vcxDb6",
+  "tags": []
+}

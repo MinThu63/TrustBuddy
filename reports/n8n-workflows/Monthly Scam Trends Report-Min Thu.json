@@ -1,0 +1,208 @@
+{
+  "name": "Monthly Scam Trends Report-Min Thu",
+  "nodes": [
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "field": "months",
+              "triggerAtHour": 9
+            }
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.3,
+      "position": [
+        -288,
+        -16
+      ],
+      "id": "143188de-73d6-4602-8637-d3bdfd7683bb",
+      "name": "Schedule Trigger"
+    },
+    {
+      "parameters": {
+        "documentId": {
+          "__rl": true,
+          "value": "13bCqNNk62IfnuBybxGKogzmJa8Xtkr2a5QPuHW9Cr5s",
+          "mode": "list",
+          "cachedResultName": "Silver Shield Logs",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/13bCqNNk62IfnuBybxGKogzmJa8Xtkr2a5QPuHW9Cr5s/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "gid=0",
+          "mode": "list",
+          "cachedResultName": "Sheet1",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/13bCqNNk62IfnuBybxGKogzmJa8Xtkr2a5QPuHW9Cr5s/edit#gid=0"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.7,
+      "position": [
+        -80,
+        -16
+      ],
+      "id": "4146b87b-c941-44b9-a8b4-fdf8d0e9a799",
+      "name": "Get row(s) in sheet",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "kma41WfimOglZ20G",
+          "name": "Google Sheets account 230-Min Thu"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsCode": "const items = $input.all();\n\nlet summary = `Total scam checks logged: ${items.length}\\n\\n`;\nsummary += `Here is the raw data:\\n\\n`;\n\nitems.forEach((item, i) => {\n    const d = item.json;\n    summary += `Entry ${i + 1}:\\n`;\n    summary += `- Date: ${d['Timestamp'] || 'N/A'}\\n`;\n    summary += `- Message: ${d['User Message'] || 'N/A'}\\n`;\n    summary += `- Category: ${d['Scam Category'] || 'N/A'}\\n`;\n    summary += `- Risk Level: ${d['Risk Level'] || 'N/A'}\\n`;\n    summary += `- Entities: ${d['Extracted Entities'] || 'N/A'}\\n`;\n    summary += `- Action: ${d['Action Required'] || 'N/A'}\\n`;\n    summary += `- AI Verdict: ${d['AI Verdict'] || 'N/A'}\\n\\n`;\n});\n\nreturn [{ json: { scam_data: summary } }];\n"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        128,
+        -16
+      ],
+      "id": "36cd7263-883f-4750-a979-da89201760ab",
+      "name": "Code in JavaScript"
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "={{ $json.scam_data }}\n",
+        "messages": {
+          "messageValues": [
+            {
+              "message": "=You are a scam intelligence analyst for TrustBuddy, an anti-scam service protecting senior citizens in Singapore.\n\nBelow is a log of scam messages checked by our users. Analyse the data and produce a Monthly Scam Trends Report.\n\nYour report MUST include:\n1. Total Messages Analysed — how many entries\n2. Risk Breakdown — how many CRITICAL, SUSPICIOUS, and SAFE (use a table)\n3. Top Scam Types — the most common scam categories detected (ranked, with brief explanation of each)\n4. Trending Patterns — any new or emerging tactics you notice\n5. Key Entities — suspicious phone numbers, links, or emails that appeared multiple times (use a table)\n6. Advisory for Seniors — 3 simple safety tips based on this month's trends, written as if speaking to a 70-year-old grandparent\n\nFORMATTING RULES:\n- Output in HTML format ONLY. Do NOT use markdown.\n- Use <h2> for section headers\n- Use <p> for paragraphs\n- Use <ul><li> for lists\n- Use <table border=\"1\" cellpadding=\"8\"><tr><th> for table headers, <td> for table data\n- Use <strong> for bold text\n- Keep language simple and clear — this report will be emailed to elderly users and their families\n- Start the report with: <h1> TrustBuddy Monthly Scam Trends Report</h1>\n- End with: <p><em>Stay safe, Singapore. TrustBuddy is always watching out for you.</em></p>\n\nDATA:\n{{ $json.scam_data }}\n"
+            }
+          ]
+        },
+        "batching": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.chainLlm",
+      "typeVersion": 1.9,
+      "position": [
+        336,
+        -16
+      ],
+      "id": "d207693d-cb15-4095-9ad3-8163085e8fba",
+      "name": "Basic LLM Chain"
+    },
+    {
+      "parameters": {
+        "model": "deepseek/deepseek-v4-flash",
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenRouter",
+      "typeVersion": 1,
+      "position": [
+        336,
+        192
+      ],
+      "id": "82ef951f-501e-4054-8abb-fbdc4766e43b",
+      "name": "OpenRouter Chat Model",
+      "credentials": {
+        "openRouterApi": {
+          "id": "e7BWm5ZN3CIeeox9",
+          "name": "OpenRouter account 25050551-Min Thu"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "sendTo": "kyawminthu0359@gmail.com",
+        "subject": "Trust Buddy — Monthly Scam Trends Report",
+        "message": "={{ $json.text }}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.gmail",
+      "typeVersion": 2.2,
+      "position": [
+        656,
+        -16
+      ],
+      "id": "dd492765-455e-459d-84f8-90741fbb2ad1",
+      "name": "Send a message",
+      "webhookId": "5301e9a3-cd55-4cd2-9580-8cfbf517c43b",
+      "credentials": {
+        "gmailOAuth2": {
+          "id": "tQEaea9h3bhaWZAd",
+          "name": "Gmail account 135"
+        }
+      }
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "Schedule Trigger": {
+      "main": [
+        [
+          {
+            "node": "Get row(s) in sheet",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get row(s) in sheet": {
+      "main": [
+        [
+          {
+            "node": "Code in JavaScript",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenRouter Chat Model": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Basic LLM Chain",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Basic LLM Chain": {
+      "main": [
+        [
+          {
+            "node": "Send a message",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Code in JavaScript": {
+      "main": [
+        [
+          {
+            "node": "Basic LLM Chain",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1",
+    "binaryMode": "separate",
+    "availableInMCP": false
+  },
+  "versionId": "615d3afa-7168-4fb3-9728-cd793e3e47f9",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "d4ebadb9d95df0efff4e8784a1811953a63bd62f8d7a2a45b7c8f23992108d48"
+  },
+  "nodeGroups": [],
+  "id": "GfL3ZSBeYMLr2pJ5",
+  "tags": []
+}

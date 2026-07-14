@@ -1,0 +1,276 @@
+{
+  "name": "Feedback Collector-Hsu",
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "c416126d-2807-4872-8328-bc97b1017a7e",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2.1,
+      "position": [
+        -288,
+        -80
+      ],
+      "id": "fc4c5bc3-8418-4a4f-9420-f3c301892c61",
+      "name": "Webhook",
+      "webhookId": "c416126d-2807-4872-8328-bc97b1017a7e"
+    },
+    {
+      "parameters": {
+        "jsCode": "const body = $input.first().json.body;\n \nreturn [{\n    json: {\n        timestamp: new Date().toISOString(),\n        user_message: body.user_message || '',\n        ai_verdict: body.ai_verdict || '',\n        helpful: body.helpful || '',\n        accurate: body.accurate || '',\n        clarity: body.clarity || '',\n        comment: body.comment || '',\n        language: body.language || 'en'\n    }\n}];"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        -112,
+        -80
+      ],
+      "id": "b08b1389-d6f4-4f17-8edf-5d1b0048943e",
+      "name": "Code in JavaScript"
+    },
+    {
+      "parameters": {
+        "operation": "append",
+        "documentId": {
+          "__rl": true,
+          "value": "18Y9hN1ZvjiQ5QGmf_ETpmUzs-SzlvDlFrhf_TsDrqtE",
+          "mode": "list",
+          "cachedResultName": "Silver Shield Feedback",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/18Y9hN1ZvjiQ5QGmf_ETpmUzs-SzlvDlFrhf_TsDrqtE/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "gid=0",
+          "mode": "list",
+          "cachedResultName": "Sheet1",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/18Y9hN1ZvjiQ5QGmf_ETpmUzs-SzlvDlFrhf_TsDrqtE/edit#gid=0"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "timestamp": "={{ $json.timestamp }}",
+            "user_message": "={{ $json.user_message }}",
+            "ai_verdict": "={{ $json.ai_verdict }}",
+            "helpful": "={{ $json.helpful }}",
+            "accurate": "={{ $json.accurate }}",
+            "language": "={{ $json.language }}",
+            "comment": "={{ $json.comment }}",
+            "clarity": "={{ $json.clarity }}"
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "timestamp",
+              "displayName": "timestamp",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "user_message",
+              "displayName": "user_message",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "ai_verdict",
+              "displayName": "ai_verdict",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "helpful",
+              "displayName": "helpful",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "accurate",
+              "displayName": "accurate",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "clarity",
+              "displayName": "clarity",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "comment",
+              "displayName": "comment",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "language",
+              "displayName": "language",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.7,
+      "position": [
+        64,
+        -80
+      ],
+      "id": "531d5aec-b6d4-41e7-b37e-7a6f4f356b5c",
+      "name": "Append row in sheet",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "EZxk7wxhA7sKp09U",
+          "name": "Google Sheets account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 3
+          },
+          "conditions": [
+            {
+              "id": "93c19995-ed93-492d-91eb-223822decf33",
+              "leftValue": "={{ $json.helpful }}",
+              "rightValue": "=not_helpful",
+              "operator": {
+                "type": "string",
+                "operation": "equals"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.3,
+      "position": [
+        208,
+        -80
+      ],
+      "id": "33ca15d2-2ef0-476d-b626-8470d34d8026",
+      "name": "If"
+    },
+    {
+      "parameters": {
+        "sendTo": "hsumyatsan2121@gmail.com",
+        "subject": "TrustBuddy — Negative Feedback Received",
+        "emailType": "text",
+        "message": "=A user reported negative feedback on TrustBuddy.  User's original message: {{ $json.user_message }}  Their feedback: - Helpful: {{ $json.helpful }} - Accurate: {{ $json.accurate }} - Clarity: {{ $json.clarity }} - Comment: {{ $json.comment }}  Timestamp: {{ $json.timestamp }} Language: {{ $json.language }}  Please review the AI verdict and consider improving the response.",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.gmail",
+      "typeVersion": 2.2,
+      "position": [
+        416,
+        -160
+      ],
+      "id": "336cd686-9ab1-40f9-a814-d9d27cf848df",
+      "name": "Send a message",
+      "webhookId": "4ae75033-799f-4952-a569-a20cd03ee5e8",
+      "credentials": {
+        "gmailOAuth2": {
+          "id": "VrBgHT0FlrQUdkYA",
+          "name": "Gmail account"
+        }
+      }
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "Webhook": {
+      "main": [
+        [
+          {
+            "node": "Code in JavaScript",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Code in JavaScript": {
+      "main": [
+        [
+          {
+            "node": "Append row in sheet",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Append row in sheet": {
+      "main": [
+        [
+          {
+            "node": "If",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If": {
+      "main": [
+        [
+          {
+            "node": "Send a message",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": true,
+  "settings": {
+    "executionOrder": "v1",
+    "binaryMode": "separate",
+    "availableInMCP": false
+  },
+  "versionId": "7b1686f9-ecf1-4206-9b0b-fecacb223de2",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "503fc7e60082dc5043895684eea776744ac768aad928b0f93666a63da2a507b2"
+  },
+  "nodeGroups": [],
+  "id": "x0IBCqETdm3H0uqS",
+  "tags": []
+}
